@@ -14,7 +14,7 @@ const links = [
   { name: 'Home', href: '/dashboard', },
   {
     name: 'Tasks',
-    href: '/dashboard/tasks',
+    href: '/dashboard/projects',
   },
   { name: 'Users', href: '/dashboard/users',  },
 ];
