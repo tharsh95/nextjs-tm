@@ -3,7 +3,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { UpdateInvoice } from '../ui/projects/buttons';
+import { signIn } from '../../../auth';
+import { AuthError } from 'next-auth';
 
 const FormSchema = z.object({
     assignee: z.string(),
@@ -67,3 +68,34 @@ export async function updateInvoice(id: string, formData: FormData) {
     revalidatePath('/dashboard/projects');
     redirect('/dashboard/projects');
 }
+
+export async function deleteProject(id:string){
+    try{
+        await sql`DELETE FROM tasks WHERE id =${id}`
+        revalidatePath('/dashboard/projects');
+    }
+    catch(e){
+        console.log(e, 'error')
+        return { message: 'Database Error: Failed to Delete Project.' };
+    }
+}
+
+export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData,
+  ) {
+    try {
+     const d =  await signIn('credentials', formData);
+     console.log(d,'data')
+    } catch (error) {
+      if (error instanceof AuthError) {
+        switch (error.type) {
+          case 'CredentialsSignin':
+            return 'Invalid credentials.';
+          default:
+            return 'Something went wrong.';
+        }
+      }
+      throw error;
+    }
+  }

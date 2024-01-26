@@ -1,4 +1,4 @@
-// import { deleteInvoice } from '@/app/lib/actions';
+import { deleteProject } from '@/app/lib/actions';
 import {
   PencilIcon,
   PlusIcon,
@@ -33,11 +33,10 @@ export function UpdateInvoice({ id }: { id: string }) {
 // ...
 
 export function DeleteInvoice({ id }: { id: string }) {
-  //   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
-
+    const deleteProjectWithId = deleteProject.bind(null, id);
   return (
     // <form action={deleteInvoiceWithId}>
-    <form>
+    <form action={deleteProjectWithId}>
       <button className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-4" />

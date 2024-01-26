@@ -35,8 +35,16 @@
 // }
 
 import React from 'react'
+import { options } from '../api/auth/[...nextauth]/route'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 
-const page = () => {
+const  page = async() => {
+  const session=await getServerSession(options)
+  console.log(session,'sseds')
+  // if(!session){
+  //   redirect('/api/auth/signin')
+  // }
   return (
     <div>homew</div>
   )

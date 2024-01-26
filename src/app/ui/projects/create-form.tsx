@@ -149,7 +149,7 @@ export default function Form({ customers }: { customers:  Users[]|undefined}) {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Invoice</Button>
+        <Button type="submit">Create Project</Button>
       </div>
     </form>
   );
