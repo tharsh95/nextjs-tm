@@ -8,9 +8,9 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { Button } from "@/app/ui/button";
-import { Users } from "@/app/lib/definitions";
-import { updateInvoice } from "@/app/lib/actions";
+import { Button } from "../button";
+import { Users } from "../../lib/definitions";
+import { updateInvoice } from "../../lib/actions";
 
 export default function EditInvoiceForm({
   invoice,

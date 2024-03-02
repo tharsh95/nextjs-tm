@@ -6,9 +6,9 @@ import {
   CurrencyDollarIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
-import { Button } from "@/app/ui/button";
-import { createTask } from '@/app/lib/actions';
-import { Users } from "@/app/lib/definitions";
+import { Button } from "../button";
+import { createTask } from '../../lib/actions';
+import { Users } from "../../lib/definitions";
 
 export default function Form({ customers }: { customers:  Users[]|undefined}) {
   const status = [

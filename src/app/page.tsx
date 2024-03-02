@@ -1,9 +1,16 @@
-"use client"
+
 import Link from "next/link";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import "./globals.css";
+import { options } from "./api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+export default async function Page() {
+const session = await getServerSession(options)
+if(session){
+  redirect('/dashboard')
+}
 
   return (
 
@@ -17,11 +24,7 @@ export default function Page() {
             <p
               className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}
             >
-              <strong>Welcome to Acme.</strong> This is the example for the{" "}
-              <a href="https://nextjs.org/learn/" className="text-blue-500">
-                Next.js Learn Course
-              </a>
-              , brought to you by Vercel.
+              <strong>Welcome to Tasky.</strong>
             </p>
             <Link
               href="/api/auth/signin"

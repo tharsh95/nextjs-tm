@@ -1,12 +1,11 @@
-import Pagination from '@/app/ui/projects/pagination';
+import Pagination from '../../ui/projects/pagination';
 import Search from '../../ui/search';
 import Table from '../../ui/projects/table';
 import { CreateInvoice } from '../../ui/projects/buttons';
-// import { lusitana } from '@/app/ui/fonts';
-// import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
+ 
 import { Suspense } from 'react';
-import { fetchTasksPages } from '@/app/lib/data';
-// import { fetchInvoicesPages } from '@/app/lib/data';
+import { fetchTasksPages } from '../../lib/data';
+
 
 export default async function Page({
   searchParams,
@@ -16,6 +15,7 @@ export default async function Page({
     page?: string;
   };
 }) {
+
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchTasksPages(query);

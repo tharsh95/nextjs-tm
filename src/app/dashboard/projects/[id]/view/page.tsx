@@ -1,6 +1,6 @@
 import Card from "../../../../ui/projects/viewcard";
-import Breadcrumbs from "@/app/ui/projects/breadcrumbs";
-import { fetchTaskById, fetchUsers } from "@/app/lib/data";
+import Breadcrumbs from "../../../../ui/projects/breadcrumbs";
+import { fetchTaskById, fetchUsers } from "../../../../lib/data";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {

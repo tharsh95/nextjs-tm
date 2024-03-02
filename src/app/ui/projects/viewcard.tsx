@@ -1,4 +1,4 @@
-import { formatDateToLocal } from "@/app/lib/utils";
+import { formatDateToLocal } from "../../lib/utils";
 
 
 export default function Card({

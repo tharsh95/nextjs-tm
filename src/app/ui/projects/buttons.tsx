@@ -1,4 +1,4 @@
-import { deleteProject } from '@/app/lib/actions';
+import { deleteProject } from '../../lib/actions';
 import {
   PencilIcon,
   PlusIcon,

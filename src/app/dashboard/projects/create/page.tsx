@@ -1,6 +1,6 @@
 import Form from "../../../ui/projects/create-form";
 import Breadcrumbs from "../../../ui/projects/breadcrumbs";
-import { fetchUsers } from "@/app/lib/data";
+import { fetchUsers } from "../../../lib/data";
 
 export default async function Page() {
   const  users  = await fetchUsers();

@@ -1,14 +1,15 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github"
+import { redirect } from "next/navigation";
 
 
-    export const options={
+    export const OPTIONS={
         providers:[
-            GithubProvider({
-                clientId:process.env.GITHUB_ID as string,
-                clientSecret:process.env.GITHUB_SECRET as string
-            }),
+            // GithubProvider({
+            //     clientId:process.env.GITHUB_ID as string,
+            //     clientSecret:process.env.GITHUB_SECRET as string
+            // }),
             CredentialsProvider({
                 name:"Credentials",
                 credentials:{
@@ -21,10 +22,10 @@ import GithubProvider from "next-auth/providers/github"
                         label:'Password:',
                         type:"password",
                         placeholder:"Enter your password"
-                    }
+                    },
                 },
                 async authorize(credentials){
-                    const user = {id:'41',name:'Harsh',password:"123456"}
+                    const user = {id:'41',name:'xyz@gmail.com',password:"Wxyz-1234"}
                     if(credentials?.username===user.name&&credentials?.password===user.password){
                         return user
                     }
@@ -35,6 +36,6 @@ import GithubProvider from "next-auth/providers/github"
         ],
 }
 
-export const handler = NextAuth(options)
+export const handler = NextAuth(OPTIONS)
 
 export { handler as GET, handler as POST }

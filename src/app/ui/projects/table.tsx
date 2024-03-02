@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { UpdateInvoice, DeleteInvoice, ViewInvoice } from "../../ui/projects/buttons";
-import InvoiceStatus from "../../ui/projects/status";
-import { formatDateToLocal, trimStringTo15Words } from "@/app/lib/utils";
+import { UpdateInvoice, DeleteInvoice, ViewInvoice } from "./buttons";
+import InvoiceStatus from "./status";
+import { formatDateToLocal, trimStringTo15Words } from "../../lib/utils";
 // import { fetchFilteredInvoices } from '@/app/lib/data';
 import { fetchTasks } from "../../lib/data";
 export default async function InvoicesTable({
@@ -76,8 +76,7 @@ export default async function InvoicesTable({
                 </th>
               </tr>
             </thead>
-            {/* <form className="bg-red-500"> */}
-              <tbody className="bg-blue-500">
+              <tbody>
                 {tasks?.map((invoice) => (
                   <tr
                     key={invoice.id}
@@ -85,13 +84,6 @@ export default async function InvoicesTable({
                   >
                     <td className="whitespace-nowrap py-3 pl-6 pr-3">
                       <div className="flex items-center gap-3">
-                        {/* <Image
-                        src={invoice.image_url}
-                        className="rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      /> */}
                         <p>{invoice.title}</p>
                       </div>
                     </td>
@@ -101,9 +93,6 @@ export default async function InvoicesTable({
                     <td className="whitespace-nowrap px-3 py-3">
                       {invoice.name}
                     </td>
-                    {/* <td className="whitespace-nowrap px-3 py-3">
-                    <InvoiceStatus status={invoice.name} />
-                  </td> */}
                     <td className="whitespace-nowrap px-3 py-3">
                       {invoice.status}
                     </td>
@@ -120,7 +109,6 @@ export default async function InvoicesTable({
                   </tr>
                 ))}
               </tbody>
-            {/* </form> */}
           </table>
         </div>
       </div>
